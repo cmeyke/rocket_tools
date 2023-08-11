@@ -85,7 +85,13 @@ async fn main() -> Result<()> {
         "minutes"
     };
 
-    println!("Next price update in {blocks_until_next_price_update} blocks, or {hours_until_next_price_update} {hours} and {minutes_until_next_price_update} {minutes}");
+    let blocks = if blocks_until_next_price_update == 1 {
+        "block"
+    } else {
+        "blocks"
+    };
+
+    println!("Next price update in {blocks_until_next_price_update} {blocks}, or {hours_until_next_price_update} {hours} and {minutes_until_next_price_update} {minutes}");
 
     Ok(())
 }
