@@ -55,7 +55,7 @@ async fn main() -> Result<()> {
         .call()
         .await?;
     let rpl_price: f64 = rpl_price.as_usize() as f64 / 1e18;
-    println!("Current RPL checkpoint price: {0:.6}", rpl_price);
+    println!("Current RPL checkpoint price: {0:.6} ETH", rpl_price);
 
     let prices_block = rocket_network_prices_contract
         .method::<_, U256>("getPricesBlock", ())?
