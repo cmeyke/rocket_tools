@@ -3,14 +3,12 @@ use ethers::{
     abi::{encode_packed, Abi, Token},
     prelude::Contract,
     providers::{Http, Middleware, Provider},
-    types::Chain,
-    types::{Address, U256},
+    types::{Address, Chain, U256},
     utils::{self, to_checksum},
 };
 use ethers_etherscan::Client;
 use eyre::Result;
-use std::env;
-use std::sync::Arc;
+use std::{env, sync::Arc};
 
 const ROCKET_STORAGE_ADDRESS: &str = "0x1d8f8f00cfa6758d7bE78336684788Fb0ee0Fa46";
 const RPL_CHECKPOINT_BLOCKS: i64 = 5760;
