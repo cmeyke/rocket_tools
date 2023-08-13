@@ -24,6 +24,6 @@ Sample output:
 ```
 Found cached ABI for 0x1d8f8f00cfa6758d7bE78336684788Fb0ee0Fa46
 Found cached ABI for 0x751826b107672360b764327631cC5764515fFC37
-Current RPL checkpoint price: 0.014796
+Current RPL checkpoint price: 0.014796 ETH
 Next price update in 3482 blocks, or 11 hours and 36 minutes
 ```
