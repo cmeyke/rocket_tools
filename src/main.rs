@@ -13,7 +13,7 @@ use std::env;
 use std::sync::Arc;
 
 const ROCKET_STORAGE_ADDRESS: &str = "0x1d8f8f00cfa6758d7bE78336684788Fb0ee0Fa46";
-const RPL_CHECKPOINT_BLOCKS: u64 = 5760;
+const RPL_CHECKPOINT_BLOCKS: i64 = 5760;
 const ETH_SECONDS_PER_BLOCK: i64 = 12;
 
 #[tokio::main]
@@ -62,10 +62,8 @@ async fn main() -> Result<()> {
         .call()
         .await?;
 
-    let blocks_until_next_price_update: i64 = (RPL_CHECKPOINT_BLOCKS
-        - (client.get_block_number().await?.as_u64() - prices_block.as_u64()))
-    .try_into()
-    .unwrap();
+    let blocks_until_next_price_update: i64 = RPL_CHECKPOINT_BLOCKS
+        - (client.get_block_number().await?.as_u64() - prices_block.as_u64()) as i64;
 
     let hours_until_next_price_update =
         blocks_until_next_price_update * ETH_SECONDS_PER_BLOCK / 60 / 60;
